@@ -20,7 +20,7 @@
       "relationships": [
         {
           "name": "Customers",
-          "desc": "Customers: MyShop[undefined] (1:Many)",
+          "desc": "Customers: MyShop[Customer] (1:Many)",
           "type": "Relationship",
           "id": 18,
           "isAggregation": true,
@@ -30,14 +30,15 @@
           "sourceRole": "Source Role",
           "sourceMin": "1",
           "sourceMax": "*",
+          "sourceAverage": "/",
           "targetRole": "Target Role",
           "targetMin": "0",
           "targetMax": "*",
-          "targetAverage": "3"
+          "targetAverage": "/"
         },
         {
           "name": "Products",
-          "desc": "Products: MyShop[undefined] (1:Many)",
+          "desc": "Products: MyShop[Product] (1:Many)",
           "type": "Relationship",
           "id": 19,
           "isAggregation": true,
@@ -47,10 +48,11 @@
           "sourceRole": "Source Role",
           "sourceMin": "1",
           "sourceMax": "*",
+          "sourceAverage": "/",
           "targetRole": "Target Role",
           "targetMin": "0",
           "targetMax": "*",
-          "targetAverage": "3"
+          "targetAverage": "/"
         }
       ],
       "pageViews": [
@@ -144,7 +146,7 @@
           "desc": "",
           "type": "BasicProperty",
           "id": 4,
-          "defaultValue": "\"2017-02-12 22:43:07\"",
+          "defaultValue": "\"2017-02-19 21:34:51\"",
           "constraints": null,
           "examples": null,
           "propertyType": "date"
@@ -174,7 +176,7 @@
       "relationships": [
         {
           "name": "myOrders",
-          "desc": "myOrders: Customer[undefined] (1:Many)",
+          "desc": "myOrders: Customer[Order] (1:Many)",
           "type": "Relationship",
           "id": 7,
           "isAggregation": true,
@@ -184,10 +186,11 @@
           "sourceRole": "Source Role",
           "sourceMin": "1",
           "sourceMax": "*",
+          "sourceAverage": "/",
           "targetRole": "Target Role",
           "targetMin": "0",
           "targetMax": "*",
-          "targetAverage": "3"
+          "targetAverage": "/"
         }
       ],
       "pageViews": [
@@ -316,167 +319,6 @@
               "label": "LastName",
               "property": [
                 6
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Order",
-      "desc": "",
-      "type": "Entity",
-      "id": 12,
-      "isAbstract": false,
-      "namePlural": "Orders",
-      "parentClass": [],
-      "basicProperties": [
-        {
-          "name": "quantity",
-          "desc": "",
-          "type": "BasicProperty",
-          "id": 13,
-          "defaultValue": 0,
-          "constraints": null,
-          "examples": null,
-          "propertyType": "number"
-        }
-      ],
-      "enums": [
-        {
-          "name": "payment",
-          "type": "Enumeration",
-          "id": 14,
-          "literals": [
-            {
-              "name": "PayPal",
-              "type": "Literal",
-              "id": 15
-            },
-            {
-              "name": "CreditCard",
-              "type": "Literal",
-              "id": 16
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "name": "products",
-          "desc": "products: Order=>undefined (Many:Many)",
-          "type": "Relationship",
-          "id": 17,
-          "isAggregation": false,
-          "targetEntity": [
-            8
-          ],
-          "sourceRole": "Source Role",
-          "sourceMin": "1",
-          "sourceMax": "*",
-          "targetRole": "Target Role",
-          "targetMin": "0",
-          "targetMax": "*",
-          "targetAverage": "/"
-        }
-      ],
-      "pageViews": [
-        {
-          "name": "DefaultPageView",
-          "desc": "",
-          "type": "PageView",
-          "isDefault": true,
-          "id": 46,
-          "label": "DefaultPageView",
-          "panels": [
-            {
-              "name": "Basics",
-              "desc": "Properties, Enums and Associations",
-              "type": "Panel",
-              "id": 47,
-              "position": 0,
-              "label": "Basics",
-              "columns": 1,
-              "alternatingColors": false,
-              "separatorPanelItems": [
-                {
-                  "name": "Separator",
-                  "desc": "---------",
-                  "type": "SeparatorPanelItem",
-                  "position": 1,
-                  "label": "",
-                  "id": 49
-                },
-                {
-                  "name": "Separator",
-                  "desc": "---------",
-                  "type": "SeparatorPanelItem",
-                  "position": 3,
-                  "label": "",
-                  "id": 51
-                }
-              ],
-              "relationshipPanelItems": [
-                {
-                  "name": "products",
-                  "desc": "Tooltip for products",
-                  "type": "RelationshipPanelItem",
-                  "id": 52,
-                  "position": 4,
-                  "label": "products",
-                  "relationship": [
-                    17
-                  ]
-                }
-              ],
-              "basicPropertyPanelItems": [
-                {
-                  "name": "quantity",
-                  "desc": "Tooltip for quantity",
-                  "type": "BasicPropertyPanelItem",
-                  "id": 48,
-                  "position": 0,
-                  "label": "quantity",
-                  "basicProperty": [
-                    13
-                  ]
-                }
-              ],
-              "enumPanelItems": [
-                {
-                  "name": "payment",
-                  "desc": "Tooltip for payment",
-                  "type": "EnumPanelItem",
-                  "id": 50,
-                  "position": 2,
-                  "label": "payment",
-                  "enumeration": [
-                    14
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "tableViews": [
-        {
-          "name": "DefaultTableView",
-          "desc": "",
-          "type": "TableView",
-          "id": 53,
-          "label": "DefaultTableView",
-          "isDefault": true,
-          "tableItems": [
-            {
-              "name": "quantity",
-              "desc": "Tooltip",
-              "type": "TableItem",
-              "id": 54,
-              "position": 0,
-              "label": "quantity",
-              "property": [
-                13
               ]
             }
           ]
@@ -626,6 +468,168 @@
               "label": "isOnSale",
               "property": [
                 11
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Order",
+      "desc": "",
+      "type": "Entity",
+      "id": 12,
+      "isAbstract": false,
+      "namePlural": "Orders",
+      "parentClass": [],
+      "basicProperties": [
+        {
+          "name": "quantity",
+          "desc": "",
+          "type": "BasicProperty",
+          "id": 13,
+          "defaultValue": 0,
+          "constraints": null,
+          "examples": null,
+          "propertyType": "number"
+        }
+      ],
+      "enums": [
+        {
+          "name": "payment",
+          "type": "Enumeration",
+          "id": 14,
+          "literals": [
+            {
+              "name": "PayPal",
+              "type": "Literal",
+              "id": 15
+            },
+            {
+              "name": "CreditCard",
+              "type": "Literal",
+              "id": 16
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "name": "products",
+          "desc": "products: Order=>Product (Many:Many)",
+          "type": "Relationship",
+          "id": 17,
+          "isAggregation": false,
+          "targetEntity": [
+            8
+          ],
+          "sourceRole": "Source Role",
+          "sourceMin": "1",
+          "sourceMax": "*",
+          "sourceAverage": "/",
+          "targetRole": "Target Role",
+          "targetMin": "0",
+          "targetMax": "*",
+          "targetAverage": "/"
+        }
+      ],
+      "pageViews": [
+        {
+          "name": "DefaultPageView",
+          "desc": "",
+          "type": "PageView",
+          "isDefault": true,
+          "id": 46,
+          "label": "DefaultPageView",
+          "panels": [
+            {
+              "name": "Basics",
+              "desc": "Properties, Enums and Associations",
+              "type": "Panel",
+              "id": 47,
+              "position": 0,
+              "label": "Basics",
+              "columns": 1,
+              "alternatingColors": false,
+              "separatorPanelItems": [
+                {
+                  "name": "Separator",
+                  "desc": "---------",
+                  "type": "SeparatorPanelItem",
+                  "position": 1,
+                  "label": "",
+                  "id": 49
+                },
+                {
+                  "name": "Separator",
+                  "desc": "---------",
+                  "type": "SeparatorPanelItem",
+                  "position": 3,
+                  "label": "",
+                  "id": 51
+                }
+              ],
+              "relationshipPanelItems": [
+                {
+                  "name": "products",
+                  "desc": "Tooltip for products",
+                  "type": "RelationshipPanelItem",
+                  "id": 52,
+                  "position": 4,
+                  "label": "products",
+                  "relationship": [
+                    17
+                  ]
+                }
+              ],
+              "basicPropertyPanelItems": [
+                {
+                  "name": "quantity",
+                  "desc": "Tooltip for quantity",
+                  "type": "BasicPropertyPanelItem",
+                  "id": 48,
+                  "position": 0,
+                  "label": "quantity",
+                  "basicProperty": [
+                    13
+                  ]
+                }
+              ],
+              "enumPanelItems": [
+                {
+                  "name": "payment",
+                  "desc": "Tooltip for payment",
+                  "type": "EnumPanelItem",
+                  "id": 50,
+                  "position": 2,
+                  "label": "payment",
+                  "enumeration": [
+                    14
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tableViews": [
+        {
+          "name": "DefaultTableView",
+          "desc": "",
+          "type": "TableView",
+          "id": 53,
+          "label": "DefaultTableView",
+          "isDefault": true,
+          "tableItems": [
+            {
+              "name": "quantity",
+              "desc": "Tooltip",
+              "type": "TableItem",
+              "id": 54,
+              "position": 0,
+              "label": "quantity",
+              "property": [
+                13
               ]
             }
           ]
